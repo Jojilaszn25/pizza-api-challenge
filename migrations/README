@@ -1,1 +1,134 @@
 Single-database configuration for Flask.
+# Pizza API Challenge
+
+This is a RESTful API built using **Flask** and **SQLAlchemy** to manage restaurants, pizzas, and their relationships. It allows clients to view restaurants and pizzas, and associate pizzas with restaurants by setting a price.
+
+---
+
+## Technologies Used
+
+- Python
+- Flask
+- Flask SQLAlchemy
+- Flask Migrate
+- SQLite (as the database)
+- Postman (for testing the API)
+
+---
+
+## How to Run the App
+
+1. **Install dependencies**:
+   ```bash
+   pipenv install
+Activate the virtual environment:
+
+bash
+Copy
+Edit
+pipenv shell
+Run database migrations:
+
+bash
+Copy
+Edit
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+Seed the database:
+
+bash
+Copy
+Edit
+python seed.py
+Start the development server:
+
+bash
+Copy
+Edit
+python app.py
+The app will run on: http://127.0.0.1:5001
+
+API Endpoints
+GET /
+Returns a welcome message.
+
+GET /restaurants
+Returns a list of all restaurants.
+
+Response:
+
+json
+Copy
+Edit
+[
+  {
+    "id": 1,
+    "name": "Pizza Palace",
+    "address": "123 Main Street"
+  },
+  ...
+]
+GET /pizzas
+Returns a list of all pizzas.
+
+Response:
+
+json
+Copy
+Edit
+[
+  {
+    "id": 1,
+    "name": "Margherita",
+    "ingredients": "Tomato, Mozzarella, Basil"
+  },
+  ...
+]
+POST /restaurant_pizzas
+Associates a pizza with a restaurant and sets a price.
+
+Request Body:
+
+json
+Copy
+Edit
+{
+  "price": 10,
+  "pizza_id": 1,
+  "restaurant_id": 1
+}
+Success Response (201):
+
+json
+Copy
+Edit
+{
+  "id": 1,
+  "name": "Margherita",
+  "ingredients": "Tomato, Mozzarella, Basil"
+}
+Error Response (400):
+
+json
+Copy
+Edit
+{
+  "errors": ["Some error message"]
+Postman Testing
+You can import the provided Postman collection:
+challenge-1-pizzas.postman_collection.json
+
+Open Postman
+
+Click Import → Select the JSON file
+
+Run each request to test the API
+
+Status
+Fully working and tested API
+Passed all Postman tests
+Submission-ready!
+
+👤 Author
+George Benedict
