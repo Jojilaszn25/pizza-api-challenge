@@ -7,7 +7,7 @@ from server.models.restaurant_pizza import RestaurantPizza
 app = create_app()
 
 with app.app_context():
-    print("🌱 Seeding database...")
+    print("Seeding database...")
 
     RestaurantPizza.query.delete()
     Pizza.query.delete()
