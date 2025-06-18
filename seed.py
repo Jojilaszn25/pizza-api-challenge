@@ -2,7 +2,7 @@ from server.models.db import db
 from server.models.restaurant import Restaurant
 from server.models.pizza import Pizza
 from server.models.restaurant_pizza import RestaurantPizza
-from server.app import create_app
+from app import create_app
 
 app = create_app()
 
