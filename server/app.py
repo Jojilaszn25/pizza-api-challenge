@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
-from server.models import db
-from server.controllers.restaurant_controller import restaurant_bp
+from server.models.db import db
 
 def create_app():
     app = Flask(__name__)
@@ -10,7 +9,5 @@ def create_app():
 
     db.init_app(app)
     Migrate(app, db)
-
-    app.register_blueprint(restaurant_bp)
 
     return app
